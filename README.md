@@ -83,7 +83,7 @@ Uma página que contenha as opções de todas as salas disponíveis em determina
 - **Gerenciamento de Salas:** Inclui a visualização, descrição e disponibilidade das salas.
 - **Reservas:** Funcionalidade que permite a realização e cancelamento de reservas de salas. (As funcionalidades variam dependendo do tipo de usuário que está acessando).
 
-## Produto Backlog do projeto
+## Documentação do projeto
 <div align="center">
     <table>
     <tr>
@@ -92,6 +92,16 @@ Uma página que contenha as opções de todas as salas disponíveis em determina
             <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" width="115px;" alt="Foto_Notion"/><br>
             <sub>
             <b>Produto Backlog</b>
+            </sub>
+        </a>
+        </td>
+    </tr>
+    <tr>
+        <td align="center" >
+        <a href="https://www.notion.so/Hist-rico-KanBan-abd75fb1d2c140deb25839e070b6df22">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" width="115px;" alt="Foto_Notion"/><br>
+            <sub>
+            <b>Histórico do KanBan</b>
             </sub>
         </a>
         </td>
