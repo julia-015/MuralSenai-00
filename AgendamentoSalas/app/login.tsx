@@ -1,23 +1,20 @@
 import {View, TouchableOpacity, Text, StyleSheet} from "react-native";
-import Header from "../../components/Header";
-import Input from "../../components/Input";
-import Buttons from "../../components/Buttons";
-import Subtitulos from "../../components/Subtitulos";
 import { Link } from "expo-router";
 import { useColorScheme } from "react-native";
-import { useColor } from "../../Temas/Temas";
-
+import Header from "@/components/Header";
+import Input from "@/components/input";
+import Buttons from "@/components/Buttons";
+import { useColor } from "@/Temas/Temas";
 
 
 const colorSheme = useColorScheme()
-
 
 function Login(){
     const cores = useColor()
     return(
         <View style={styles.container}>
             <Header texto="Login" cor={cores.loginHeader}/>
-            <Subtitulos textoS="Faça Login para Acessar o Sistema!"/>
+            <Subtitulos texto="Faça Login para Acessar o Sistema!"/>
             <Input label="Email:" placeholder="Insira seu email" secureTextEntry={false} />
             <Input label="Senha:" placeholder="Insira sua senha" secureTextEntry={true} />
             <Link href="TabNav" asChild>
@@ -40,7 +37,7 @@ function Login(){
             </View>
     )
 }
-
+ 
 const cores = useColor()
 const styles = StyleSheet.create({
     container:{

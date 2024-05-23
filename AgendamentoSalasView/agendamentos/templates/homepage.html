@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block title %}
+    SENAI - HOME 
+{% endblock %}
+
+{% block body %}
+
+            {% for item in dados_agendamentos %}
+                <div class="styleHome">
+                    <h1>{{ item.titulo }}</h1>
+                    <p>{{ item.descricao }}</p>
+                </div>
+            {% endfor %}
+
+{% endblock %}
