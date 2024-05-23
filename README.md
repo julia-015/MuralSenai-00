@@ -82,3 +82,19 @@ Uma página que contenha as opções de todas as salas disponíveis em determina
 - **Gerenciamento de Usuários:** Funcionalidade exclusiva da coordenação para cadastro e gerenciamento de professores.
 - **Gerenciamento de Salas:** Inclui a visualização, descrição e disponibilidade das salas.
 - **Reservas:** Funcionalidade que permite a realização e cancelamento de reservas de salas. (As funcionalidades variam dependendo do tipo de usuário que está acessando).
+
+## Produto Backlog do projeto
+<div align="center">
+    <table>
+    <tr>
+        <td align="center" >
+        <a href="https://www.notion.so/Produto-BackLog-462b36feb1674960a097e770ad2788c7">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" width="115px;" alt="Foto_Notion"/><br>
+            <sub>
+            <b>Produto Backlog</b>
+            </sub>
+        </a>
+        </td>
+    </tr>
+    </table>
+</div>
