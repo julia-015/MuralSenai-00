@@ -95,8 +95,6 @@ Uma página que contenha as opções de todas as salas disponíveis em determina
             </sub>
         </a>
         </td>
-    </tr>
-    <tr>
         <td align="center" >
         <a href="https://www.notion.so/Hist-rico-KanBan-abd75fb1d2c140deb25839e070b6df22">
             <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" width="115px;" alt="Foto_Notion"/><br>
