@@ -1,55 +1,68 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import {View, TouchableOpacity, Text, StyleSheet} from "react-native";
+import Header from "../../components/Header";
+import Input from "../../components/Input";
+import Buttons from "../../components/Buttons";
+import Subtitulos from "../../components/Subtitulos";
+import { Link } from "expo-router";
+import { useColorScheme } from "react-native";
+import { useColor } from "../../Temas/Temas";
 
-const LoginTab = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
 
-    const log = () => {
-        
-        console.log('Username:', username);
-        console.log('Password:', password);
-    };
 
-    return (
+const colorSheme = useColorScheme()
+
+
+function Login(){
+    const cores = useColor()
+    return(
         <View style={styles.container}>
-            <Text style={styles.header}>Login</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Username"
-                value={username}
-                onChangeText={setUsername}
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Password"
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry
-            />
-            <Button title="Login" onPress={log} />
-        </View>
-    );
-};
+            <Header texto="Login" cor={cores.loginHeader}/>
+            <Subtitulos textoS="Faça Login para Acessar o Sistema!"/>
+            <Input label="Email:" placeholder="Insira seu email" secureTextEntry={false} />
+            <Input label="Senha:" placeholder="Insira sua senha" secureTextEntry={true} />
+            <Link href="TabNav" asChild>
+                <Buttons title="Entrar"/>
+            </Link>
+            
+                <View style={styles.linksB}>
+                    <Link href="/TelasIniciais/Cadastro" asChild>
+                            <TouchableOpacity>
+                                <Text style={styles.text}>Cadastre-se</Text>
+                            </TouchableOpacity>
+                    </Link>
 
+                    <Link href="/TelasIniciais/RecupSenha" asChild>
+                        <TouchableOpacity>
+                            <Text style={styles.text}>Esqueceu a senha?</Text>
+                        </TouchableOpacity>
+                    </Link>
+                </View>
+            </View>
+    )
+}
+
+const cores = useColor()
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        padding: 16,
-    },
-    header: {
-        fontSize: 24,
-        marginBottom: 16,
-        textAlign: 'center',
-    },
-    input: {
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 1,
-        marginBottom: 12,
-        padding: 10,
-    },
-});
+    container:{
+        backgroundColor: cores.bgPrimary,
+        flex: 1
 
-export default LoginTab;
+    },
+
+    linksB:{
+        flexDirection: 'row', 
+        justifyContent: "space-between", 
+        paddingHorizontal: 20
+    },
+    text:{
+        fontFamily:'Inter',
+        fontWeight:'400',
+        fontSize:14,
+        lineHeight:19.94,
+        color: cores.colorLinks
+    }
+})
+
+
+
+export default Login
