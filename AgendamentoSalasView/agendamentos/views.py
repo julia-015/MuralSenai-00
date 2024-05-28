@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import agendamentos
+from .models import agendamentos, disponibilidade
 from .forms import FormCadastro, FormLogin
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
@@ -12,8 +12,8 @@ def homepage(request):
     # return HttpResponse("<h1> Hello World </h1>")
     context = {}
     dados_agendamentos = agendamentos.objects.all()
-    context["dados_agendamentos"] = dados_agendamentos   
-    return render(request,'homepage.html' , context)
+    context['dados_agendamentos'] = dados_agendamentos   
+    return render(request,'homepage.html', context)
 
 def cadastro (request):
     if request.method == "POST":
@@ -71,3 +71,13 @@ def login (request):
         form = FormLogin()
 
     return render(request, "login.html", {"form": form})
+
+def disponibilidade(request):
+    context = {}
+    context2 = {}
+    dados_disponibilidade = disponibilidade.objects.all() 
+    dados_agendamentos = agendamentos.objects.all()
+    
+    context["dados_disponibilidade"] = dados_disponibilidade
+    
+    return render(request, 'disponibilidade.html', context)

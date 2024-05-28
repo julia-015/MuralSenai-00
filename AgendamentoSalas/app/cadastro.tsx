@@ -1,24 +1,44 @@
-import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
-import { cores } from './components/style/colors.tsx; '
-import Logo from './components/logo'
-import Botao from './components/botao'
+import { View, StyleSheet, ScrollView } from 'react-native';
+import Header from '@/components/Header';
+import Input from '@/components/input';
+import Botao from '@/components/botao';
+import LinkBtn from '@/components/LinkBtn';
+import { Link } from 'expo-router';
+import { useColor } from '@/Temas/Temas'; 
 
-  const Cadastro = () => {
-    return (
-      <View style={{ backgroundColor: cores.bgPrimary, height: '100%' }}>
-        <StatusBar backgroundColor={cores.bgPrimaryVariant} barStyle="light-content" />
-        <Logo text="Cadastre-se" color={cores.backgroundColor} />
-        <InputField label="Nome" placeholder="Digite o nome" secureTextEntry={false} />
-        <InputField label="Username" placeholder="Digite o Username" secureTextEntry={false} />
-        <InputField label="Senha" placeholder="Digite a senha" secureTextEntry={true} />
-        <InputField label="Confirme a senha" placeholder="Digite a senha novamente" secureTextEntry={true} />
-        <Botao text="Cadastrar" color={cores.corBotoes} href='.' />
-      </View>
-    );
-  };
+function Cadastro(){
+    
+  const cores = useColor()
   
+  return(
+      <ScrollView>
+           <Header texto="Cadastre-se" cor={cores.cadastroHeader}/>
+          <View style={styles.form}>
+              <Input label="Nome" placeholder={"Insira seu nome:"} />
+              <Input label="Sobrenome" placeholder={"Insira seu sobrenome:"} />
+              <Input label="E-mail" placeholder={"Insira seu email:"}/>
+              <Input label="Telefone" placeholder={"Insira seu telefone:"}/>
+              <Input label="Senha" placeholder={"Insira sua senha:"} secureTextEntry={true} />
+              <Input label="Confirmar Senha" placeholder={"Insira sua senha:"} secureTextEntry={true} />
+              <LinkBtn title="Cadastre-se" href="./login.tsx"/>
+                         
+          </View>
+      </ScrollView>
+  )
+}
 
-export default Cadastro;
-
-
+const styles = StyleSheet.create({
+  form:{
+      backgroundColor: "#fff",
+      height: '100%',
+      paddingTop: 45,
+      paddingHorizontal: 20,
+      paddingBottom: 45,
+      width: "100%"
+  },
+  container: {
+      backgroundColor: "#FFFFFF",
+      flex: 1
+  },
+})
+export default Cadastro

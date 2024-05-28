@@ -6,7 +6,7 @@ interface Cores {
     bgInfo?: string,
     textColorPrimary: string,
     textColorSecundary: string,
-    inputBgPrimary: string,
+    inputBgPrimary: string, 
     inputTextPrimary: string,
     bgHover: string,
     loginHeader: string,

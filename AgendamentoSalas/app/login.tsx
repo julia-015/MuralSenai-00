@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Input from "@/components/input";
 import Buttons from "@/components/Buttons";
 import { useColor } from "@/Temas/Temas";
+import Subtitulos from "@/components/Subtitulos";
 
 
 const colorSheme = useColorScheme()
@@ -22,13 +23,13 @@ function Login(){
             </Link>
             
                 <View style={styles.linksB}>
-                    <Link href="/TelasIniciais/Cadastro" asChild>
+                    <Link href="/Cadastro" asChild>
                             <TouchableOpacity>
                                 <Text style={styles.text}>Cadastre-se</Text>
                             </TouchableOpacity>
                     </Link>
 
-                    <Link href="/TelasIniciais/RecupSenha" asChild>
+                    <Link href="/RecupSenha" asChild>
                         <TouchableOpacity>
                             <Text style={styles.text}>Esqueceu a senha?</Text>
                         </TouchableOpacity>
@@ -37,7 +38,7 @@ function Login(){
             </View>
     )
 }
- 
+
 const cores = useColor()
 const styles = StyleSheet.create({
     container:{
