@@ -1,6 +1,6 @@
 import { View, StyleSheet, ScrollView } from 'react-native';
 import Header from '@/components/Header';
-import Input from '@/components/input';
+import Input from '@/components/Input';
 import Botao from '@/components/botao';
 import LinkBtn from '@/components/LinkBtn';
 import { Link } from 'expo-router';

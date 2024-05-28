@@ -9,7 +9,7 @@ class agendamentos(models.Model):
         return self.titulo
     
 
-class disponibilidade(models.Model):
+class disponibilidadeC(models.Model):
     tipo = models.CharField(max_length=15)
     disponibilidade = models.IntegerField()
     descricao = models.TextField(max_length=255)

@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import agendamentos, disponibilidade
+from .models import agendamentos, disponibilidadeC
 from .forms import FormCadastro, FormLogin
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
@@ -74,10 +74,41 @@ def login (request):
 
 def disponibilidade(request):
     context = {}
-    context2 = {}
-    dados_disponibilidade = disponibilidade.objects.all() 
+    dados_disponibilidade = disponibilidadeC.objects.all() 
     dados_agendamentos = agendamentos.objects.all()
     
     context["dados_disponibilidade"] = dados_disponibilidade
     
     return render(request, 'disponibilidade.html', context)
+
+
+def reserva (request):
+    if request.method == "POST":
+        form = FormNome(request.POST)
+        if form.is_valid():
+             
+             var_nome = form.cleaned_data['nome']
+             var_sobrenome = form.cleaned_data['sobrenome']
+             var_email = form.cleaned_data['email']
+             var_idade = form.cleaned_data['idade']
+             var_endereco = form.cleaned_data['endereco']
+             var_quarto = form.cleaned_data['quarto']
+             var_data = form.cleaned_data['data']
+
+             user = usuario(nome = var_nome, sobrenome = var_sobrenome, email = var_email, idade = var_idade, endereco = var_endereco, quarto = var_quarto, data = var_data)
+             user.save()
+
+             print(var_nome)
+             print(var_sobrenome)
+             print(var_email)
+             print(var_idade)
+             print(var_endereco)
+             print(var_quarto)
+             print(var_data)
+             
+             return HttpResponse("<h1 style=\"font-family: 'Courier New', Courier, monospace; background-color: #f5c2dac6; text-align: center; padding: 20px; padding-top: 50px; padding-bottom: 50px\">Reserva realizada com sucesso!<br> Em breve entraremos em contato com você para mais detalhes.<br>Obrigada por escolher o Hotel Senai!</h1>")
+        
+    else:
+        form = FormNome()
+
+    return render(request, "nome.html", {"form": form})
