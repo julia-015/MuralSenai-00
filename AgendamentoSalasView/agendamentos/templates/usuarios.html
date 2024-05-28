@@ -1,0 +1,32 @@
+<!-- {% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block title %}
+
+SENAI - lISTA USUÁRIOS
+
+{% endblock %}
+
+{% block body %}
+
+{% for item in dados_user %}
+
+<div class="estiloFundo">
+    <div class="styleDisp">
+        <img src="{{ item.foto_quarto.url }}" class="card-img-top imagem-quarto" alt="Logo"> 
+    
+        <h5 class="card-title"><b>Nome: </b>{{ item.nome}}</h5>
+        <p class="card-text"><b>Sobrenome: </b>{{ item.sobrenome }}</p>
+        <p class="card-text"><b>Email: </b>{{ item.email }}</p>
+        <a href="{% url 'reserva' %}" class="btn" style="background-color: #fa8fc1c6; color: #000000; border-radius: 5px;">Reservar</a>
+        <br>
+    </div>
+    <p>-----------------------------------------------------------------------------------------------------------------------------------</p>
+</div>
+
+{% endfor %}
+
+
+{% endblock %} -->

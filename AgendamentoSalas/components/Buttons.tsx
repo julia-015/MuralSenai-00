@@ -1,6 +1,8 @@
 import { useColor } from "@/Temas/Temas";
 import { View, Text, TouchableOpacity, StyleSheet, TouchableOpacityProps } from "react-native";
 
+import React from 'react';
+
 interface BotaoProps extends TouchableOpacityProps {
     title: string;
   }

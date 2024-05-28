@@ -4,12 +4,29 @@
             <div class="navbar-nav">
                 <div class="logo2">
                     <i class="bi bi-buildings"></i>
-                    <p>Hotel Senai</p>
+                    <p>Senai</p>
                 </div>
                 <div class="navLinks">
-                    <a href="{% url 'cadastro' %}">Cadastro</a>
-                    <a href="{% url 'login' %}">Login</a>
-                    <a href="{% url 'disponibilidade' %}">Disponibilidade</a>
+                      <div class="dropdown custom-dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Gerenciamento de Usuários
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'cadastro' %}">Cadastro</a></li>
+                          <!-- <li><a class="dropdown-item" href="{% url 'usuarios' %}">Usuários</a></li> -->
+                        </ul>
+                      </div>
+                      <a href="{% url 'login' %}">Login</a>
+                      <div class="dropdown custom-dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Reserva
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'reserva' %}">Reservar</a></li>
+                          <!-- <li><a class="dropdown-item" href="{% url 'listaReserva' %}">Lista de Reservas</a></li> -->
+                        </ul>
+                      </div>
+                      <a href="{% url 'disponibilidade' %}">Disponibilidade</a>
 
                 </div>
             </div>

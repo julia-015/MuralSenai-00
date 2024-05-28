@@ -5,6 +5,7 @@ import Botao from '@/components/botao';
 import LinkBtn from '@/components/LinkBtn';
 import { Link } from 'expo-router';
 import { useColor } from '@/Temas/Temas'; 
+import React from 'react';
 
 function Cadastro(){
     

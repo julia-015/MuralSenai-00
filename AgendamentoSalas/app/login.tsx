@@ -2,11 +2,12 @@ import {View, TouchableOpacity, Text, StyleSheet} from "react-native";
 import { Link } from "expo-router";
 import { useColorScheme } from "react-native";
 import Header from "@/components/Header";
-import Input from "@/components/input";
+import Input from "@/components/Input"
 import Buttons from "@/components/Buttons";
 import { useColor } from "@/Temas/Temas";
 import Subtitulos from "@/components/Subtitulos";
 
+import React from 'react';
 
 const colorSheme = useColorScheme()
 

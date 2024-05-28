@@ -107,4 +107,20 @@ def reserva (request):
     else:
         form = FormNome()
 
-    return render(request, "nome.html", {"form": form})
+    return render(request, "reserva.html", {"form": form})
+
+# def listaReserva(request):
+#     context = {}
+#     dados_listaReserva = listaReserva.objects.all() 
+    
+#     context["dados_disponibilidade"] = dados_listaReserva
+    
+#     return render(request, 'listaReserva.html', context)
+
+# def user(request):
+#     context = {}
+#     dados_user = user.objects.all() 
+
+#     context["dados_user"] = dados_user
+    
+#     return render(request, 'usuarios.html', context)

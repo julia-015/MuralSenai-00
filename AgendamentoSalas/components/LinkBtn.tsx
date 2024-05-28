@@ -3,6 +3,8 @@ import { LinkProps } from "expo-router/build/link/Link";
 import { Text, TouchableOpacity, StyleSheet} from "react-native";
 import { useColor } from "@/Temas/Temas";
 
+import React from 'react';
+
 
 interface LinkBtnProps extends LinkProps{
     title: string

@@ -15,7 +15,7 @@ class FormNome(forms.Form):
     nome = forms.CharField(label= 'Nome', max_length= 20)
     sobrenome = forms.CharField(label= 'Sobrenome', max_length= 20)
     email = forms.CharField(label= 'Email', max_length= 50)
-    sala = forms.ChoiceField(label= 'Quarto')
+    sala = forms.ChoiceField(label= 'Sala')
     data = forms.DateField(label='Data', widget=forms.DateInput(attrs={'type': 'date'}))
 # Se possível, podemos colocar o horário
 
