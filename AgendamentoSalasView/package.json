@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "react-native-image-gallery": "^2.1.5",
     "react-native-keyboard-aware-scroll-view": "^0.9.5"
+  },
+  "devDependencies": {
+    "@types/react-native-image-gallery": "^2.1.5"
   }
 }
