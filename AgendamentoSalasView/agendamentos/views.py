@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse
-from .models import agendamentos, disponibilidadeC
-from .forms import FormCadastro, FormLogin
+from .models import agendamentos, disponibilidadeC, usuario
+from .forms import FormCadastro, FormLogin, FormNome
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.conf import settings
@@ -90,20 +90,16 @@ def reserva (request):
              var_nome = form.cleaned_data['nome']
              var_sobrenome = form.cleaned_data['sobrenome']
              var_email = form.cleaned_data['email']
-             var_idade = form.cleaned_data['idade']
-             var_endereco = form.cleaned_data['endereco']
-             var_quarto = form.cleaned_data['quarto']
+             var_sala = form.cleaned_data['sala']
              var_data = form.cleaned_data['data']
 
-             user = usuario(nome = var_nome, sobrenome = var_sobrenome, email = var_email, idade = var_idade, endereco = var_endereco, quarto = var_quarto, data = var_data)
+             user = usuario(nome = var_nome, sobrenome = var_sobrenome, email = var_email, sala = var_sala, data = var_data)
              user.save()
 
              print(var_nome)
              print(var_sobrenome)
              print(var_email)
-             print(var_idade)
-             print(var_endereco)
-             print(var_quarto)
+             print(var_sala)
              print(var_data)
              
              return HttpResponse("<h1 style=\"font-family: 'Courier New', Courier, monospace; background-color: #f5c2dac6; text-align: center; padding: 20px; padding-top: 50px; padding-bottom: 50px\">Reserva realizada com sucesso!<br> Em breve entraremos em contato com você para mais detalhes.<br>Obrigada por escolher o Hotel Senai!</h1>")
