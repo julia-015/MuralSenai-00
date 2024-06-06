@@ -112,23 +112,17 @@ def reserva (request):
 
     return render(request, "reserva.html", {"form": form})
 
-from django.urls import reverse_lazy
 
-class CadastroDeleteView(DeleteView):
-    model = cadastro
-    template_name = 'excuirC.html'
-
-
-# def listaReserva(request):
-#     context = {}
-#     dados_listaReserva = listaReserva.objects.all() 
+def listaReserva(request):
+     context = {}
+     dados_listaReserva = listaReserva.objects.all() 
     
-#     context["dados_disponibilidade"] = dados_listaReserva
+     context["dados_disponibilidade"] = dados_listaReserva
     
-#     return render(request, 'listaReserva.html', context)
+     return render(request, 'listaReserva.html', context)
 
-# def user(request):
-#     context = {}
+def user(request):
+     context = {}
 #     dados_user = user.objects.all() 
 
 #     context["dados_user"] = dados_user

@@ -18,6 +18,7 @@ const Header: React.FC<Header> = ({ cor, texto }) => {
   )
 }
 
+
 const cores = useColor()
 const styles = StyleSheet.create({
   container:{
@@ -42,7 +43,6 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontWeight: '400',
     lineHeight: 24.2
-
   },
 
 })
