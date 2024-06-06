@@ -1,7 +1,7 @@
+
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useColor } from '@/Temas/Temas';
- 
 
 interface SubtitulosProps {
     texto: string;

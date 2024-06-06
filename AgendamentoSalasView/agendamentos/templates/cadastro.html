@@ -12,7 +12,7 @@
 <form action="cadastro" method="post" class="form">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Submit" class="submit-btn">
+    <input type="submit" value="Cadastrar" class="submit-btn" style="background-color: red; margin-top: 20px;">
 </form>
 
 {% endblock %}

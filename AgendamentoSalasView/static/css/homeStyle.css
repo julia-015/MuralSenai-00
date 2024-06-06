@@ -1,9 +1,15 @@
+.styleGeralHome{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: space-between;
+    flex-direction: row;
+}
 
 .styleHome{
     font-family: 'Courier New', Courier, monospace;
     padding: 20px;
     padding-top: 30px;
-    text-align: center; /* Centralizando o texto */
     margin-top: 80px; 
 
 }
@@ -11,11 +17,52 @@
 .styleHome h1 {
     font-size: 36px;
     margin-bottom: 20px;
+    text-align: left;
 }
 
 /* Estilo para o parágrafo de descrição */
 .styleHome p {
     font-size: 18px;
     color: #000000;
+    align-items: flex-start;
 }
 
+.login-form {
+    background-color: #f8f9fa;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.login-form h2 {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.login-form .form-group {
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    font-weight: bold;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+/* .login-form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+} */

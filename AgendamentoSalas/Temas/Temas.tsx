@@ -66,3 +66,34 @@ export function useColor(){
 
   
 }
+
+
+const textStyles = ({
+    header: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: '#333',
+    },
+    subheader: {
+      fontSize: 20,
+      fontWeight: '600',
+      color: '#555',
+    },
+    body: {
+      fontSize: 16,
+      fontWeight: 'normal',
+      color: '#666',
+    },
+    caption: {
+      fontSize: 14,
+      fontWeight: '300',
+      color: '#888',
+    },
+    label: {
+      fontSize: 16,
+      fontWeight: '500',
+      color: '#444',
+    },
+  });
+  
+  export default textStyles;

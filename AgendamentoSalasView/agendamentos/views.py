@@ -8,12 +8,14 @@ from django.shortcuts import redirect
 
 # Create your views here.
 
+from django.contrib.auth.forms import AuthenticationForm
+
 def homepage(request):
-    # return HttpResponse("<h1> Hello World </h1>")
     context = {}
     dados_agendamentos = agendamentos.objects.all()
-    context['dados_agendamentos'] = dados_agendamentos   
-    return render(request,'homepage.html', context)
+    context['dados_agendamentos'] = dados_agendamentos
+    context['login_form'] = AuthenticationForm()
+    return render(request, 'homepage.html', context)
 
 def cadastro (request):
     if request.method == "POST":
