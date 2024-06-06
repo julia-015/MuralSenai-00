@@ -29,6 +29,17 @@ class usuario(models.Model):
     def __str__(self):
         return self.nome
     
+class cadastro(models.Model):
+    nome = models.CharField(max_length=100)
+    sobrenome = models.CharField(max_length=100)
+    usuario = models.CharField(max_length=100)
+    email = models.EmailField(max_length=50)
+    senha = models.CharField(max_length=50)
+
+    
+    def __str__(self):
+        return self.nome
+    
 # class user(models.Model):
 #     nome = models.CharField(max_length=15)
 #     sobrenome= models.IntegerField()

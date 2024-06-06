@@ -1,10 +1,11 @@
 from django.shortcuts import render, HttpResponse
-from .models import agendamentos, disponibilidadeC, usuario
+from .models import agendamentos, disponibilidadeC, usuario, cadastro
 from .forms import FormCadastro, FormLogin, FormNome
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.conf import settings
 from django.shortcuts import redirect
+from django.views.generic.edit import DeleteView
 
 # Create your views here.
 
@@ -110,6 +111,13 @@ def reserva (request):
         form = FormNome()
 
     return render(request, "reserva.html", {"form": form})
+
+from django.urls import reverse_lazy
+
+class CadastroDeleteView(DeleteView):
+    model = cadastro
+    template_name = 'excuirC.html'
+
 
 # def listaReserva(request):
 #     context = {}

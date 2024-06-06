@@ -1,42 +1,50 @@
-import { View, Text, StyleSheet, Image} from "react-native"
-import React from 'react';
+import React from "react";
+import { View, Text, StyleSheet, Image } from "react-native"
+import { StatusBar } from 'expo-status-bar';
+import { useColor } from "../Temas/Temas";
 
-type HeaderProps = {
-  texto: string,
-  cor: string
+
+interface Header {
+  cor: string;
+  texto: string;
 }
 
-function Header({cor, texto}: HeaderProps){
-    return (
-      
-      <View style={{...styles.container, backgroundColor: cor}}>
-          <Image style={styles.logo} source={require('@assets/LogoSenai.png')}/>
-          <Text style={styles.text}>{texto}</Text>
-      </View>
-        
-    )
+const Header: React.FC<Header> = ({ cor, texto }) => { 
+  return(
+    <View style={{...styles.container,backgroundColor: cor}}>
+        <StatusBar style="light"/>
+        <Text style={styles.text}>{texto}</Text>
+    </View>
+  )
 }
 
+const cores = useColor()
 const styles = StyleSheet.create({
   container:{
+    justifyContent: 'center',
     alignItems: 'center',
-    fontFamily: 'Roboto',
-    height: 200,
-    width: "100%",
-    justifyContent: "center",
-    borderBottomEndRadius: 5,
-    borderBottomStartRadius: 5,
-    gap: 10
+    height:250,
+    width:"100%",
+    gap:10,
+    borderBottomEndRadius:9,
+    borderBottomStartRadius:9,
+  
   },
   logo:{
     width: 181,
     height: 39,
-    marginHorizontal: 73,
+    marginBottom: 20,
+    marginTop: 40
   },
   text:{
+    fontFamily: 'Inter',
     fontSize: 20,
-    color: '#fff'
+    color: '#FFFFFF',
+    fontWeight: '400',
+    lineHeight: 24.2
+
   },
+
 })
 
 export default Header

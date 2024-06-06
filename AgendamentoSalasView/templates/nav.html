@@ -15,6 +15,7 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
   }
   .custom-dropdown .dropdown-item {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       color: #333; /* Cor do texto dos itens */
   }
   .custom-dropdown .dropdown-item:hover {
@@ -57,6 +58,7 @@
                       </button>
                       <ul class="dropdown-menu">
                           <li><a class="dropdown-item" style="font-weight: bold;" href="{% url 'cadastro' %}">Cadastro</a></li>
+                          <li><a class="dropdown-item" style="font-weight: bold;" href="{% url 'listaU' %}">Lista Cadastros</a></li>
                       </ul>
                   </div>
         
@@ -66,6 +68,7 @@
                       </button>
                       <ul class="dropdown-menu">
                           <li><a class="dropdown-item" style="font-weight: bold;" href="{% url 'reserva' %}">Reservar</a></li>
+                          <li><a class="dropdown-item" style="font-weight: bold;" href="{% url 'listaReserva' %}">Lista Reservas</a></li>
                       </ul>
                   </div>
                   <a href="{% url 'login' %}" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Login</a>
