@@ -1,6 +1,6 @@
 <style>
   .custom-dropdown .btn-secondary {
-      background-color: #d0d0d0; /* Cor de fundo personalizada */
+      background-color: #ffffff; /* Cor de fundo personalizada */
       color: #ff0000; /* Cor do texto */
       font-family: 'Courier New', Courier, monospace;
       font-weight: bold;
@@ -10,7 +10,7 @@
       background-color: #d0d0d0; /* Cor de fundo ao passar o mouse */
   }
   .custom-dropdown .dropdown-menu {
-      background-color: #9c9c9cdb; /* Cor de fundo do dropdown */
+      background-color: #ffffffdb; /* Cor de fundo do dropdown */
       border-radius: 10px; /* Bordas arredondadas */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
   }
@@ -43,16 +43,16 @@
       font-weight: bold;
   }
 </style>
-<nav class="navbar navbar-expand-lg" style="background-color: #d0d0d0;">
+<nav class="navbar navbar-expand-lg" style="background-color: #ffffff;">
   <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav" style="gap: 180px;">
+        <div class="navbar-nav" style="gap: 320px;">
               <div class="logo2">
                   <img src="/media/logo/logosenaivermelha.png" alt="" style=" max-width: 200px; max-height: 200px ">
               </div>
-              <div class="navLinks" style="align-items: center;" style="font-family: 'Courier New', Courier, monospace;">
+              <div class="navLinks" style="align-items: center;" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
                   <div class="dropdown custom-dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border:0 ; letter-spacing: 3px;">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border:0 ; letter-spacing: 3px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
                           Gerenciamento de Usuários
                       </button>
                       <ul class="dropdown-menu">
@@ -60,16 +60,16 @@
                       </ul>
                   </div>
         
-                  <div class="dropdown custom-dropdown" style="font-family: 'Courier New', Courier, monospace">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border:0 ; letter-spacing: 3px;">
+                  <div class="dropdown custom-dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border:0 ; letter-spacing: 3px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
                           Reserva
                       </button>
                       <ul class="dropdown-menu">
                           <li><a class="dropdown-item" style="font-weight: bold;" href="{% url 'reserva' %}">Reservar</a></li>
                       </ul>
                   </div>
-                  <a href="{% url 'login' %}">Login</a>
-                  <a href="{% url 'disponibilidade' %}">Disponibilidade</a>
+                  <a href="{% url 'login' %}" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Login</a>
+                  <a href="{% url 'disponibilidade' %}" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Disponibilidade</a>
               </div>
           </div>
       </div>

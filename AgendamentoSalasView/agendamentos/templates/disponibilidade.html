@@ -15,12 +15,11 @@ SENAI - DISPONIBILIDADE
 
 <div class="estiloFundo">
     <div class="styleDisp">
-        <img src="{{ item.foto_quarto.url }}" class="card-img-top imagem-quarto" alt="Logo"> <!--Baixar as imagens da sala e modificar o link-->
-    
+        <img src="{{ item.foto_sala.url }}" class="card-img-top imagem-quarto" alt="Logo"> 
         <h5 class="card-title">{{ item.tipo}}</h5>
         <p class="card-text"><b>Descrição: </b>{{ item.descricao }}</p>
         <p class="card-text"><b>Disponibilidade: </b>{{ item.disponibilidade }}</p>
-        <a href="{% url 'reserva' %}" class="btn" style="background-color: #fa8fc1c6; color: #000000; border-radius: 5px;">Reservar</a>
+        <a href="{% url 'reserva' %}" class="btn" style="background-color: #ff0000; color: #000000; border-radius: 5px;">Reservar</a>
         <br>
     </div>
     <p>-----------------------------------------------------------------------------------------------------------------------------------</p>

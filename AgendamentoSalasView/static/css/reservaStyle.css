@@ -11,7 +11,9 @@
 }
 
 .form input[type="text"],
-.form input[type="email"] {
+.form input[type="email"],
+.form input[type="data"],
+.form input[type="sala"]{
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;

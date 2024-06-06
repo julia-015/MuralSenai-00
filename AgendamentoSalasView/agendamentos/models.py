@@ -13,7 +13,7 @@ class disponibilidadeC(models.Model):
     tipo = models.CharField(max_length=15)
     disponibilidade = models.IntegerField()
     descricao = models.TextField(max_length=255)
-    foto_sala = models.ImageField(upload_to="Foto_Quarto/")
+    foto_sala = models.ImageField(upload_to="Foto_Sala/")
     # data_reserva = models.DateTimeField(default=datetime.datetime.now)
 
     def __str__(self):
