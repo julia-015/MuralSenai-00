@@ -4,12 +4,12 @@ import { StatusBar } from 'expo-status-bar';
 import { useColor } from "../Temas/Temas";
 
 
-interface Header {
+interface HeaderProps {
   cor: string;
   texto: string;
 }
 
-const Header: React.FC<Header> = ({ cor, texto }) => { 
+const Header: React.FC<HeaderProps> = ({ cor, texto }) => { 
   return(
     <View style={{...styles.container,backgroundColor: cor}}>
         <StatusBar style="light"/>
@@ -48,3 +48,4 @@ const styles = StyleSheet.create({
 })
 
 export default Header
+

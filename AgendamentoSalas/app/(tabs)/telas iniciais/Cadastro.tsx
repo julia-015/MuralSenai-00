@@ -4,6 +4,7 @@ import { Link } from "expo-router";
 import { useColor } from "@/Temas/Temas";
 import { StyleSheet } from "react-native";
 import React from "react";
+import Botao from "@/components/Botao"
 
 
 function Cadastro(){

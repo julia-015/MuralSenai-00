@@ -19,4 +19,19 @@ class FormNome(forms.Form):
     data = forms.DateField(label='Data', widget=forms.DateInput(attrs={'type': 'date'}))
 # Se possível, podemos colocar o horário
 
+# reservas/forms.py
+# from django import forms
+# from .models import usuario, reservas
+
+# class UsuarioForm(forms.ModelForm):
+#     class Meta:
+#         model = usuario
+#         fields = ['nome', 'email']
+
+# class ReservaForm(forms.ModelForm):
+#     class Meta:
+#         model = reservas
+#         fields = ['usuario', 'data', 'detalhes']
+
+
 

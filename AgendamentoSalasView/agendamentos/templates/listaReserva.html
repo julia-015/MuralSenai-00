@@ -1,31 +1,36 @@
-<!-- {% extends 'index.html' %}
+<!-- reservas/templates/reservas/lista_reservas.html
+{% extends 'index.html' %}
 
-{% load static %}
-
-
-{% block title %}
-
-SENAI - LISTA RESERVA
-
-{% endblock %}
-
-{% block body %}
-
-{% for item in dados_listaReserva %}
-
-<div class="estiloFundo">
-    <div class="styleDisp">
-        <img src="{{ item.foto_quarto.url }}" class="card-img-top imagem-quarto" alt="Logo"> 
-    
-        <h5 class="card-title">{{ item.tipo}}</h5>
-        <p class="card-text"><b>Descrição: </b>{{ item.descricao }}</p>
-        <p class="card-text"><b>Disponibilidade: </b>{{ item.disponibilidade }}</p>
-        <a href="{% url 'reserva' %}" class="btn" style="background-color: #fa8fc1c6; color: #000000; border-radius: 5px;">Reservar</a>
-        <br>
-    </div>
-</div>
-
-{% endfor %}
-
-
+{% block content %}
+<h1>Reservas</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Usuário</th>
+            <th>Data da Reserva</th>
+            <th>Detalhes</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for reserva in reservas %}
+        <tr>
+            <td>{{ reserva.usuario.nome }}</td>
+            <td>{{ reserva.data_reserva }}</td>
+            <td>{{ reserva.detalhes }}</td>
+            <td>
+                <a href="{% url 'editar_reserva' reserva.id %}" class="btn btn-primary btn-sm">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <form action="{% url 'excluir_reserva' reserva.id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %} -->
