@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
+// import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
+import { Redirect  } from 'expo-router';
+import { Route } from 'expo-router/build/Route';
+
 
 interface LoginProps extends RouteComponentProps {}
 
-const Login: React.FC<LoginProps> = ({ history }) => {
+const Login: React.FC<LoginProps> = ({  }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

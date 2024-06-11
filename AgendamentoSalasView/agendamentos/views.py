@@ -1,9 +1,14 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
-from .models import agendamentos, disponibilidadeC, usuario, reservas
+from .models import agendamentos, disponibilidadeC, reservas
 from .forms import FormCadastro, FormLogin, FormNome
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required, permission_required
+
+@login_required
+@permission_required('seuapp.pode_acessar_disponibilidade', raise_exception=True)
 
 def homepage(request):
     context = {}
@@ -50,22 +55,19 @@ def login(request):
     if request.method == "POST":
         form = FormLogin(request.POST)
         if form.is_valid():
-            var_user = form.cleaned_data['user']
-            var_password = form.cleaned_data['password']
+            user = form.cleaned_data['user']
+            password = form.cleaned_data['password']
 
-            user = authenticate(username=var_user, password=var_password)
-            print(user)
-
-            if user is not None:
-                return redirect('quartos')
+            user = authenticate(username=user, password=password)
+            if user is User.objects.filter(username=user).exists():
+                auth_login(request, user)  # Autentica o usuário
+                return redirect('disponibilidade') # Redireciona para a página de disponibilidade após o login bem-sucedido
             else:
-                return HttpResponse(
-                    "<h1 style=\"font-family: 'Courier New', Courier, monospace; background-color: #f5c2dac6; text-align: center; padding: 20px; padding-top: 50px; padding-bottom: 50px\">Usuário ou Senha incorreta</h1>"
-                )
+                messages.error(request, 'Usuário ou senha incorretos.')  # Mensagem de erro
     else:
         form = FormLogin()
 
-    return render(request, "login.html", {"form": form})
+    return render(request, "homepage.html", {"form": form})
 
 def disponibilidade(request):
     context = {}
@@ -116,3 +118,24 @@ def listaReserva(request):
 
     return render(request, "listaReserva.html", {'reservas': reserva})
 
+def edit_user(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    if request.method == 'POST':
+        user.username = request.POST.get('username')
+        user.email = request.POST.get('email')
+        user.save()
+    return redirect('listaU')
+
+def delete_user(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    if request.method == 'POST':
+        user.delete()
+    return redirect('listaU')
+
+
+
+def reserva(request):
+    context = {}
+    dados_disponibilidade = disponibilidadeC.objects.all()
+    context["disponibilidades"] = dados_disponibilidade
+    return render(request, "reserva.html", context)
