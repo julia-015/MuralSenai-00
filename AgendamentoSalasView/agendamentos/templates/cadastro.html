@@ -9,7 +9,7 @@
 
 {% block body %}
 
-<form action="cadastro" method="post" class="form">
+<form action="cadastro" method="post" class="form" style="background-color: #f8f9fa;">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Cadastrar" class="submit-btn" style="background-color: red; margin-top: 20px;">

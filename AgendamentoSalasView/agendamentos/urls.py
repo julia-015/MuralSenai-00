@@ -7,11 +7,9 @@ urlpatterns = [
     path('login', views.login, name='login'),
     path('disponibilidade', views.disponibilidade, name='disponibilidade'),
     path('reserva', views.reserva, name='reserva'),
-    # path('usuarios/', views.lista_usuarios, name='lista_usuarios'),
-    # path('usuarios/editar/<int:usuario_id>/', views.editar_usuario, name='editar_usuario'),
-    # path('usuarios/excluir/<int:usuario_id>/', views.excluir_usuario, name='excluir_usuario'),
-    # path('reservas/', views.lista_reservas, name='lista_reservas'),
-    # path('reservas/editar/<int:reserva_id>/', views.editar_reserva, name='editar_reserva'),
-    # path('reservas/excluir/<int:reserva_id>/', views.excluir_reserva, name='excluir_reserva'),
+    path('listaU', views.listaU, name='listaU'),
+    path('listaReserva', views.listaReserva, name='listaReserva'),
+    
+
 
 ]

@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
-from .models import agendamentos, disponibilidadeC, reservas, usuario
-from .forms import FormCadastro, FormLogin, FormNome, ReservaForm, UsuarioForm
+from .models import agendamentos, disponibilidadeC, usuario, reservas
+from .forms import FormCadastro, FormLogin, FormNome
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
@@ -19,10 +19,12 @@ def cadastro(request):
             var_first_name = form.cleaned_data['first_name']
             var_last_name = form.cleaned_data['last_name']
             var_email = form.cleaned_data['email']
+            var_cpf = form.cleaned_data['cpf']
+            var_tel = form.cleaned_data['telefone']
             var_user = form.cleaned_data['user']
             var_password = form.cleaned_data['password']
 
-            user = User.objects.create_user(username=var_user, email=var_email, password=var_password)
+            user = User.objects.create_user(username=var_user, email=var_email, password=var_password, cpf=var_cpf, telefone=var_tel)
             user.first_name = var_first_name
             user.last_name = var_last_name
             user.save()
@@ -101,46 +103,16 @@ def reserva(request):
 
     return render(request, "reserva.html", {"form": form})
 
-# def lista_usuarios(request):
-#     usuarios = usuario.objects.all()
-#     return render(request, 'reservas/listaU.html', {'usuarios': usuarios})
 
-# def editar_usuario(request, usuario_id):
-#     usuario_obj = get_object_or_404(usuario, id=usuario_id)
-#     if request.method == 'POST':
-#         form = UsuarioForm(request.POST, instance=usuario_obj)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('lista_usuarios')
-#     else:
-#         form = UsuarioForm(instance=usuario_obj)
-#     return render(request, 'reservas/editar_usuario.html', {'form': form})
 
-# def excluir_usuario(request, usuario_id):
-#     usuario_obj = get_object_or_404(usuario, id=usuario_id)
-#     if request.method == 'POST':
-#         usuario_obj.delete()
-#         return redirect('lista_usuarios')
-#     return render(request, 'reservas/excluir_usuario.html', {'usuario': usuario_obj})
+def listaU(request):
+    users = User.objects.all()
 
-# def lista_reservas(request):
-#     reservas_obj = reservas.objects.all()
-#     return render(request, 'reservas/listaReserva.html', {'reservas': reservas_obj})
+    return render(request,"listaU.html",{'users': users})
 
-# def editar_reserva(request, reserva_id):
-#     reserva_obj = get_object_or_404(reservas, id=reserva_id)
-#     if request.method == 'POST':
-#         form = ReservaForm(request.POST, instance=reserva_obj)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('lista_reservas')
-#     else:
-#         form = ReservaForm(instance=reserva_obj)
-#     return render(request, 'reservas/editar_reserva.html', {'form': form})
+def listaReserva(request):
 
-# def excluir_reserva(request, reserva_id):
-#     reserva_obj = get_object_or_404(reservas, id=reserva_id)
-#     if request.method == 'POST':
-#         reserva_obj.delete()
-#         return redirect('lista_reservas')
-#     return render(request, 'reservas/excluir_reserva.html', {'reserva': reserva_obj})
+    reserva = reservas.objects.all()
+
+    return render(request, "listaReserva.html", {'reservas': reserva})
+

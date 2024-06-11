@@ -19,7 +19,7 @@ class disponibilidadeC(models.Model):
     def __str__(self):
         return self.tipo
 
-class reservas(models.Model):
+class reservas (models.Model):
     nome = models.CharField(max_length=20)
     sobrenome = models.CharField(max_length=20)
     email = models.CharField(max_length=50)
@@ -34,7 +34,10 @@ class cadastro(models.Model):
     sobrenome = models.CharField(max_length=100)
     usuario = models.CharField(max_length=100)
     email = models.EmailField(max_length=50)
+    cpf = models.CharField(max_length=11)
+    telefone = models.CharField(max_length=11)
     senha = models.CharField(max_length=50)
+
 
     
     def __str__(self):

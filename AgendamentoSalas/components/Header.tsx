@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native"
 import { StatusBar } from 'expo-status-bar';
-import { useColor } from "../Temas/Temas";
+import { useColor } from "@/Temas/Temas";
 
 
 interface HeaderProps {
@@ -9,7 +9,7 @@ interface HeaderProps {
   texto: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ cor, texto }) => { 
+const CustomHeader: React.FC<HeaderProps> = ({ cor, texto, }) => { 
   return(
     <View style={{...styles.container,backgroundColor: cor}}>
         <StatusBar style="light"/>
@@ -17,6 +17,7 @@ const Header: React.FC<HeaderProps> = ({ cor, texto }) => {
     </View>
   )
 }
+
 
 
 const cores = useColor()
@@ -47,5 +48,5 @@ const styles = StyleSheet.create({
 
 })
 
-export default Header
+export default CustomHeader
 
