@@ -9,7 +9,7 @@ interface HeaderProps {
   texto: string;
 }
 
-const CustomHeader: React.FC<HeaderProps> = ({ cor, texto, }) => { 
+const Header: React.FC<HeaderProps> = ({ cor, texto, }) => { 
   return(
     <View style={{...styles.container,backgroundColor: cor}}>
         <StatusBar style="light"/>
@@ -48,5 +48,5 @@ const styles = StyleSheet.create({
 
 })
 
-export default CustomHeader
+export default Header
 

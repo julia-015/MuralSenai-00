@@ -10,10 +10,10 @@ class agendamentos(models.Model):
     
 
 class disponibilidadeC(models.Model):
-    tipo = models.CharField(max_length=15)
+    tipo = models.CharField(max_length=30)
     disponibilidade = models.IntegerField()
     descricao = models.TextField(max_length=255)
-    foto_sala = models.ImageField(upload_to="Foto_Sala/")
+    corredor = models.CharField(max_length=15)
     # data_reserva = models.DateTimeField(default=datetime.datetime.now)
 
     def __str__(self):
@@ -34,12 +34,8 @@ class cadastro(models.Model):
     sobrenome = models.CharField(max_length=100)
     usuario = models.CharField(max_length=100)
     email = models.EmailField(max_length=50)
-    cpf = models.CharField(max_length=11)
-    telefone = models.CharField(max_length=11)
     senha = models.CharField(max_length=50)
 
-
-    
     def __str__(self):
         return self.nome
     
@@ -51,9 +47,3 @@ class usuario(models.Model):
 
     def __str__(self):
         return self.nome
-
-# class listaReserva(models.Model):
-#     tipo = models.CharField(max_length=15)
-#     disponibilidade = models.IntegerField()
-#     descricao = models.TextField(max_length=255)
-#     foto_sala = models.ImageField(upload_to="Foto_Quarto/")

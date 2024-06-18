@@ -7,8 +7,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
 
-@login_required
-@permission_required('seuapp.pode_acessar_disponibilidade', raise_exception=True)
 
 def homepage(request):
     context = {}
@@ -24,15 +22,8 @@ def cadastro(request):
             var_first_name = form.cleaned_data['first_name']
             var_last_name = form.cleaned_data['last_name']
             var_email = form.cleaned_data['email']
-            var_cpf = form.cleaned_data['cpf']
-            var_tel = form.cleaned_data['telefone']
             var_user = form.cleaned_data['user']
             var_password = form.cleaned_data['password']
-
-            user = User.objects.create_user(username=var_user, email=var_email, password=var_password, cpf=var_cpf, telefone=var_tel)
-            user.first_name = var_first_name
-            user.last_name = var_last_name
-            user.save()
 
             print(var_first_name)
             print(var_last_name)
@@ -40,8 +31,15 @@ def cadastro(request):
             print(var_user)
             print(var_password)
 
+            user = User.objects.create_user(username= var_user, email=var_email, password=var_password)
+            user.first_name = var_first_name
+            user.last_name = var_last_name
+            user.save()
+
+            
+
             if user is not None:
-                return redirect('login')
+                return redirect('home')
 
             return HttpResponse(
                 "<h1 style=\"font-family: 'Courier New', Courier, monospace; background-color: #f5c2dac6; text-align: center; padding: 20px; padding-top: 50px; padding-bottom: 50px\">Cadastro realizado com sucesso!<br> Em breve entraremos em contato com você para mais detalhes.<br>Obrigada por escolher o Hotel Senai!</h1>"
@@ -88,6 +86,7 @@ def reserva(request):
             var_sala = form.cleaned_data['sala']
             var_data = form.cleaned_data['data']
 
+
             user_reserva = reservas(nome=var_nome, sobrenome=var_sobrenome, email=var_email, sala=var_sala, data=var_data)
             user_reserva.save()
 
@@ -98,7 +97,7 @@ def reserva(request):
             print(var_data)
 
             return HttpResponse(
-                "<h1 style=\"font-family: 'Courier New', Courier, monospace; background-color: #f5c2dac6; text-align: center; padding: 20px; padding-top: 50px; padding-bottom: 50px\">Reserva realizada com sucesso!<br> Em breve entraremos em contato com você para mais detalhes.<br>Obrigada por escolher o Hotel Senai!</h1>"
+                "<h1 style=\"font-family: 'Courier New', Courier, monospace; background-color: #f5c2dac6; text-align: center; padding: 20px; padding-top: 50px; padding-bottom: 50px\">Reserva realizada com sucesso!<br> Em breve entraremos em contato com você para mais detalhes.<br>Obrigada por escolher o H Senai!</h1>"
             )
     else:
         form = FormNome()

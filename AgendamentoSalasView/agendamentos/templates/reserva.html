@@ -12,30 +12,9 @@
 {% endblock %}
 
 {% block body %}
-    <form action="reserva" method="post" class="form" style="background-color: #f8f9fa;">
+    <form action="{% url 'reserva' %}" method="post" class="form" style="background-color: #f8f9fa;">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Reservar" class="submit-btn" style="background-color: red; margin-top: 20px; ">
     </form>
-
-    <div id="calendar"></div>
-
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                events: [
-                    {% for disponibilidade in disponibilidades %}
-                        {
-                            title: '{{ disponibilidade.tipo }}',
-                            start: '{{ disponibilidade.data_disponivel }}',
-                            end: '{{ disponibilidade.data_disponivel }}'
-                        },
-                    {% endfor %}
-                ]
-            });
-            calendar.render();
-        });
-    </script> -->
 {% endblock %}

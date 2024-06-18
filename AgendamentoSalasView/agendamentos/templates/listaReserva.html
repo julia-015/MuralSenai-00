@@ -1,19 +1,85 @@
-
 {% extends 'index.html' %}
 
 {% block body %}
-    <h1>Reservas</h1>
+<div style="background-color:  #f8f9fa; margin: 50px; padding: 10px; border: 1px solid #ccc; border-radius: 10px; box-sizing: border-box; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+    <div style="border-bottom: 1px solid rgb(255, 0, 0); padding-bottom: 10px; display: flex; justify-content: space-between;">
+        <h1>Reservas</h1>
+        <button class="btn btn-link" data-toggle="modal" data-target="#addUserModal" title="Adicionar">
+            <a href="{% url 'cadastro' %}" style="text-decoration: none;">
+                <i class="bi bi-plus-circle-dotted" style="color: rgb(255, 0, 0); font-size: 35px; margin-right: 15px;"></i>
+            </a>
+        </button>
+    </div>
+    <br>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <ul>
         {% for user in users %}
-            <li>{{ reserva.nome }} - {{ reserva.email }} - {{reserva.sala}} - {{reserva.data}}</li>
-            <button class="btn btn-link" data-toggle="modal" data-target="#editModal-{{ user.id }}" title="Editar">
-                <i class="fas fa-edit"></i>
-            </button>
-            <button class="btn btn-link" data-toggle="modal" data-target="#deleteModal-{{ user.id }}" title="Excluir" style="color: red;">
-                <i class="bi bi-trash"></i>
-            </button>
+            <div style="display: flex; justify-content: space-between;">
+                <li>{{ Reserva.nome }} - {{ Reserva.email }} - {{Reserva.sala}} - {{Reserva.data}}</li>
+                <h1 style="border-bottom: 1px solid rgb(255, 0, 0); padding-bottom: 10px;"></h1>
+                <div>
+                    <button class="btn btn-link" data-toggle="modal" data-target="#editModal-{{ user.id }}" title="Editar">
+                        <i class="fas fa-edit" style="color: #0fa325;"></i>
+                    </button>
+                    <button class="btn btn-link" data-toggle="modal" data-target="#deleteModal-{{ user.id }}" title="Excluir" style="color: red;">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Edit Modal -->
+            <div class="modal fade" id="editModal-{{ user.id }}" tabindex="-1" aria-labelledby="editModalLabel-{{ user.id }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editModalLabel-{{ user.id }}">Editar Usuário</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{% url 'edit_user' user.id %}" method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="username-{{ user.id }}">Nome</label>
+                                    <input type="text" class="form-control" id="username-{{ user.id }}" name="username" value="{{ user.username }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-{{ user.id }}">Email</label>
+                                    <input type="email" class="form-control" id="email-{{ user.id }}" name="email" value="{{ user.email }}">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delete Modal -->
+            <div class="modal fade" id="deleteModal-{{ user.id }}" tabindex="-1" aria-labelledby="deleteModalLabel-{{ user.id }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel-{{ user.id }}">Confirmar Exclusão</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Você tem certeza que deseja excluir o usuário <strong>{{ user.username }}</strong>?
+                        </div>
+                        <div class="modal-footer">
+                            <form action="{% url 'delete_user' user.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-danger">Excluir</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
     </ul>
 </div>
 {% endblock %}
+
